@@ -1,41 +1,51 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Makes sure the body takes up full height */
+    height: 100vh;
     margin: 0;
-    background-color: #ffcccc; /* Light pink background */
+    background: linear-gradient(-45deg, #ffcccc, #ffadad, #ffd6a5, #fff5e1);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    overflow: hidden;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
     background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center; /* Center the text inside the container */
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 90%;
 }
 
 h1 {
-    color: #ff4d6d; /* Valentine's color */
+    color: #ff4d6d;
+    font-size: 2em;
 }
 
 .buttons {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 button {
     font-size: 18px;
-    padding: 10px 20px;
-    margin: 10px;
+    padding: 12px 25px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: top 0.4s ease-out, left 0.4s ease-out, background-color 0.3s, transform 0.3s;
 }
 
 #yesBtn {
@@ -45,13 +55,45 @@ button {
 
 #noBtn {
     background-color: #fa85bf;
-    color: rgb(255, 255, 255);
+    color: white;
+    position: relative; /* This is the key fix */
 }
 
 #yesBtn:hover {
     background-color: #ff1f4d;
+    transform: translateY(-2px);
 }
 
-#noBtn:hover {
-    transition: transform 0.2s ease-out; /* Smooth animation when hovering */
+/* Styles for the "Yes" Page */
+#valentine-container { 
+    box-shadow: 0 4px 25px rgba(255, 77, 109, 0.4); 
+}
+
+#valentine-container p { 
+    color: #555; 
+    font-size: 1.2em; 
+    margin-top: -10px; 
+    margin-bottom: 25px; 
+}
+
+#goBackBtn { 
+    background-color: #fff; 
+    color: #ff4d6d; 
+    border: 2px solid #ff4d6d; 
+}
+
+#goBackBtn:hover { 
+    background-color: #ff4d6d; 
+    color: #fff; 
+    transform: translateY(-2px); 
+}
+
+.heart-pulse { 
+    display: inline-block; 
+    animation: pulse 1.2s infinite; 
+}
+
+@keyframes pulse { 
+    0%, 100% { transform: scale(1); } 
+    50% { transform: scale(1.3); } 
 }
